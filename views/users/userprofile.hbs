@@ -1,0 +1,110 @@
+{{>usernav}}
+
+{{>profilehead}}
+
+{{>profilenav}}
+
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5" ><br><br><br>
+        <h2 class="mb-4">Profile Info</h2>
+        <!-- Section: Design Block -->
+<section class="text-center">
+ 
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          
+          <form action="/userprofile?users={{users._id}}" method="post">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label text-dark" for="form3Example1">First name</label>
+                  <input type="text" id="form3Example1" name="fname" class="form-control" value="{{users.fname}}"/>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label text-dark" for="form3Example2">Last name</label>
+                  <input type="text" id="form3Example2" name="lname" class="form-control" value="{{users.lname}}"/>
+                </div>
+              </div>
+           
+
+            <!-- Email input -->
+             <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label text-dark" for="form3Example2">Mobile Number</label>
+                  <input type="number" id="form3Example2"  name="mobilenumber" class="form-control" value="{{users.mobilenumber}}"/>
+                </div><br>
+                 <div class="form-outline" >
+                  <label class="form-label text-dark" for="form3Example2"> E-mail</label>
+                  <input type="email" id="form3Example2" name="email" class="form-control" value="{{users.email}}"/>
+                </div>
+              </div>
+
+               <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div style="padding-top:120px ;">
+                        <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#exampleModalCenter" href="#changepassword">Change Password</button>
+                    </div>
+              </div>
+
+            <div class="col-md-2 mb-4">
+               <button type="submit" class="btn btn-warning  mb-4">
+               Update
+               </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Password Reset</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/updatepassword" method="post">
+                    <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label text-dark" for="form3Example1">Password</label>
+                  <input type="password" name="password" id="form3Example1" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label text-dark" for="form3Example2">Reset Password</label>
+                  <input type="password" name="newpassword" id="form3Example2" class="form-control" />
+                </div>
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+<!-- Section: Design Block -->
+     </div>
+		</div>
+
+{{profilejs}}
+
+{{>userfooter}}
+
+{{>userjs}}
+  </body>
+</html>

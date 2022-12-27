@@ -1,0 +1,58 @@
+{{>usernav}}
+
+{{>profilehead}}
+
+{{>profilenav}}
+
+<br>
+	<div class="bg0 p-t-75 p-b-5">
+		<div class="container" style="margin-left: 500px;">
+			<div class="row">
+ <div class="card bg-light " style="width: 30rem;">
+  <div class="card-body ">
+
+    <form id="address" action="/usereditaddress?address={{address._id}}" method="post">
+     <input type="text" name="userid" value="{{user._id}}" hidden>
+      <div class="modal-body">
+        <div class="col-md-12 form-group p_star">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="first" name="name" value="{{address.address.name}}"/>
+        </div>
+        <div class="col-md-12 form-group">
+           <label for="zip">Mobile</label>
+           <input type="number" class="form-control" id="mobile" name="mobile" value="{{address.address.mobile}}"/>
+       </div>
+       <div class="col-md-12 form-group ">
+           <label for="email">Email Address</label>
+           <input type="text" class="form-control" id="email" name="email" value="{{address.address.email}}"/>
+       </div>
+       <div class="col-md-12 form-group p_star">
+           <label for="Address">Address</label>
+           <input type="text" class="form-control" id="add" name="address" value="{{address.address.address}}"/>
+       </div>
+       <div class="col-md-12 form-group p_star">
+           <label for="city">Pincode</label>
+           <input type="text" class="form-control" id="pincode" name="pincode" value="{{address.address.pincode}}"/>
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+ </div>
+</form>
+<br>
+<br>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+{{ profilejs}}
+{{>userfooter}}
+<script>
+  
+</script>
+{{>userjs}}

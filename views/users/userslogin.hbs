@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/users/signup/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/users/signup/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="/users/images/mobile-organizers.png" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" action="/userslogin" method="post">
+				 <a href="/logincancel" class="btn btn-close btn-close" ></a>
+                <span class="contact1-form-title">
+					Login
+				</span>
+
+                <h3 class="text-50 mb-5 text-center "> <b> Please enter your E-mail and Password!</b></h3>
+
+		        {{#if loginErr}}
+			      <p class="error">Invalid Email or Password</p>
+		        {{else}}
+
+				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input1" type="email" name="email"  id="email" placeholder="Email" value="ashkarkabbas786@gmail.com" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Message is required">
+					<input class="input1" type="password" name="password" placeholder="Password" value="123" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn">
+						<span>
+							Login
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</button>
+                       <a href="/otplogin" class="contact1-form-btn" >OTP Login</a>
+				</div> <br><br>     
+                
+                    <div class="container-contact1-form-btn">
+			           Create an account?<a href="/signup" class="" > Sign up</a>
+                    </div>
+		        {{/if}}
+			</form>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/bootstrap/js/popper.js"></script>
+	<script src="/users/signup/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="/users/signup/js/main.js"></script>
+
+</body>
+</html>

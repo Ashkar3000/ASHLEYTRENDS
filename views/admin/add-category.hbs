@@ -1,0 +1,47 @@
+{{>adminhead}}
+<body>
+    {{>adminnavbar}}
+    
+      <!-- partial -->
+      <div class="main-panel">        
+        {{!-- <div class="content-wrapper">
+          <div class="row "> --}}
+
+       <div class="container-fluid pt-3"> 
+             
+            <div class="col-lg-6 grid-margin stretch-card pt-3 ">
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                     <a href="/admin/catecancel" class="btn btn-close btn-outline-close-white" ></a>
+                  <h4 class="card-title text-center fw-bold mb-2 text-uppercase text-light">add-category</h4>
+
+                  <form class="forms-sample pt-3" action="/admin/add-category" method="post">
+                  {{#if err}}
+                  <h1>{{err}}</h1>
+                  {{else}}
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Name">
+                    </div>
+
+                     <div class="form-group">
+                      <label for="exampleInputName1">Discount</label>
+                      <input type="number" class="form-control" name="discount" id="exampleInputName1" placeholder="discount">
+                    </div>                
+                  
+                    {{!-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                    <div class="text-center">
+                      <button class="btn btn-outline-primary" type="submit">Submit</button>
+                    </div>
+                  {{/if}}
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+    {{>adminjs}}
+</body>

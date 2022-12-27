@@ -1,0 +1,125 @@
+{{>usernav}}	
+
+	<!-- Shoping Cart -->
+	<div class="bg0 p-t-75 p-b-85 ">
+		<div class="container"  id="cartReload">
+			<div class="row">
+				{{#if err}}
+					<h1 class="text-center">{{err}}</h1>
+					<img src="/users/images/empty cart.png" alt="" style="height: 500px; width: 500px; " class="rounded mx-auto d-block">
+				{{else}}
+				<div class="col-lg-10 col-xl- m-lr-auto m-b-50">
+					<div class="m-l-15 m-r--38 m-lr-0-xl">
+						<div class="wrap-table-shopping-cart">
+							<table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-3"></th>
+									<th class="">Product</th>
+									<th class="column-3">Price</th>
+									{{!-- <th class="column-4">Quantity</th> --}}
+									<th class="column-3">Brand</th>
+									<th class="column-3">Action</th>
+
+								</tr>  
+								{{#each products}} 
+								<tr class="table_row" >
+									<td class="column-1">
+										<div class="how-itemcart1">
+											<img src="/product-images/{{product.image.[0]}}" alt="IMG">
+										</div>
+									</td>
+									<td class=""><a href="/product-detail?product={{this.product._id}}"  class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"><b>{{this.product.name}}</b></a> <br><br> {{this.product.description}}</td>
+									<td class="column-3">₹ {{this.product.price}}</td>
+									<td class="column-3">{{this.product.brand}}</td>
+									<td class="column-3">
+										<button class="main_btn" onclick="removebtn('{{this.product._id}}')"  >
+                                           <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+									</td>
+								</tr>
+								{{/each}}
+							</table>
+						</div>
+									  {{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+	
+		
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+
+{{!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+<script>
+
+	function quantity(cartId, prodId, count) {
+		
+    let quantity = parseInt(document.getElementById(prodId).value)
+
+    
+    $.ajax({
+		
+      url: "/changeProductQuantity",
+	  
+      data: {
+        cart: cartId,
+        product: prodId,
+        count: count,
+        quantity: quantity
+      },
+      method: 'post',
+      success: (response) => {
+		
+        if (response.removeProduct) {
+          swal({
+            title: "Product Removed",
+            icon: "success",
+            button: "OK",
+          }).then(() => { 
+            $("#cartReload").load(window.location.href + " #cartReload");
+          })
+        } else {
+          $("#cartReload").load(window.location.href + " #cartReload");
+        }
+      }
+    })
+  }
+	
+</script>
+<script>
+function removebtn(id) {
+   // alert("gggggggggg****")
+Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((value) => {
+  if (value) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    ).then(()=>{
+        location.href = "/deleteWish/" + id
+	})
+  }
+})
+}  
+</script>
+
+
+{{>userfooter}}
+{{>userjs}}

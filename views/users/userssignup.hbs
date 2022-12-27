@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/users/signup/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/users/signup/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/users/signup/css/main.css">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+	<div class="contact1">
+		<div class="container-contact1">
+			<div class="contact1-pic js-tilt" data-tilt>
+				<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="IMG">
+			</div>
+
+			<form class="contact1-form validate-form" action="/signup" method="post">
+            <a href="/signupcancel" class="btn btn-close btn-close-black" ></a>
+				<span class="contact1-form-title">
+					Create an account
+				</span>
+
+                <p style="color:rgb(255, 11, 11) ;">{{sgn}}</p>
+
+				<div class="wrap-input1 validate-input" data-validate = "Name is required">
+					<input class="input1" type="text" name="fname" placeholder="First Name" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Last Name is required">
+					<input class="input1" type="text" name="lname" placeholder="Last Name" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input1" type="email" name="email"  id="email" placeholder="Email" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "">
+					<input class="input1" type="number" name="mobilenumber" onkeyup="phone()" id="form3Example4cg" placeholder="Mobile Number" minlength=10 maxlength=10 required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Message is required">
+					<input class="input1" type="password" name="password" placeholder="Password" required>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="container-contact1-form-btn">
+					<button class="contact1-form-btn" type="submit" class="btn btn-block create-account" onclick="return valid">
+						<span>
+							Create an Account
+							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+                    <br>
+                <div class="d-flex justify-content-center links">
+					<p class="text-dark"> <b> Already have an account?</p></b> <a href="/login" ><b>Login</b></a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+<script>
+  function phone() {
+    var phone = document.getElementById("form3Example4cg").value;
+    var error3 = document.getElementById("err3");
+    if (phone == '') {
+        error3.innerHTML = 'Enter a Mobile no';
+        return false;
+    }
+    else if (phone.length < 10) {
+        error3.innerHTML = 'please Enter 10 Number';
+        return false;
+    }
+    else if (phone.length > 10) {
+        error3.innerHTML = 'please Enter 10 Number';
+        return false;
+    }
+    else if (!phone.match(/^\d{10}$/)) {
+        error3.innerHTML = 'Please Enter valid number';
+        return false;
+    }
+    else {
+        error3.innerHTML = '';
+
+        return true;
+    }
+}
+function valid(){
+        offerPercentage();
+        if(offerPercentage === true){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+</script>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/bootstrap/js/popper.js"></script>
+	<script src="/users/signup/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/users/signup/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
+
+

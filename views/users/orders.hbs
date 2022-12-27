@@ -1,0 +1,50 @@
+{{>usernav}}
+<!-- Shoping Cart -->
+<div class="bg0 p-t-75 p-b-85">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-xl-12 m-lr-auto m-b-50">
+				<div class="m-l-5 m-r--8 m-lr-0-xl">
+					{{#each orders}}&nbsp;
+					<div class="wrap-table-shopping-cart">
+						<table class="table-shopping-cart ">
+							<tr class="table_head p-3">
+								<th class="text-center">Date</th>
+								<th class="">Address</th>
+								<th class="">Amount</th>
+								<th class="">Payment</th>
+								<th class="">View</th>
+							</tr>
+							<tr class="table_row">
+								<td class=" text-center">{{this.order_date}}
+								<td class="">{{this.address.name}} <br>
+								{{this.address.mobile}} <br>
+								{{this.address.email}} <br>
+								{{this.address.address}} <br>
+								{{this.address.pincode}}</td>
+								<td>₹ {{this.totalAmount}}</td>
+								<td>{{this.payment}}</td>
+								<td class="column-5 text-center">
+									<a href="/viewOrderProducts?id={{this._id}}" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">View Products</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+{{>userfooter}}
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+
+
+	{{>userjs}}

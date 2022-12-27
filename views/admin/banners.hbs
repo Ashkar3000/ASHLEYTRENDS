@@ -1,0 +1,90 @@
+{{>adminhead}}
+<body>
+    {{>adminnavbar}}
+    
+
+          <div class="container-fluid pt-3"> 
+             
+            <div class="col-lg-12 grid-margin stretch-card pt-3">
+           
+              <div class="card bg-dark">
+                    
+                <div class="card-body">
+                  <a href="/admin/add-banners" class="btn btn-outline-success btn-rounded float-end">Add-Banner</a>
+                  <h1 class="card-title text-center text-light">Banners</h1>
+                  {{!-- <p class="card-description">
+                    Add class <code>.table-dark</code>
+                  </p> --}}
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            No.
+                          </th>
+                          <th scope="col">
+                            Image
+                          </th>
+                          <th scope="col">
+                            Title
+                          </th>
+                          <th scope="col">
+                            Description
+                          </th>
+                          <th scope="col">
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each banners}}
+                        <tr>
+                          <th scope="row">
+                           
+                          </th>
+                          <td>
+                            <img style="width: 50px;height: 50px;" src="/product-images/{{this.banners.image.[0]}}" alt="" >    
+                          </td>  
+
+                          <td>
+                            {{this.banners.title}}
+                           
+                          </td>
+
+                          <td>
+                            {{this.banners.description}}
+                          </td>
+                          <td>
+                            
+                            <a href="/admin/delete-banner?banner={{this._id}}" onclick="return confirm('Are you want to delete {{this.name}}?')"><i class="fa-solid fa-trash" style="color: red;"></i></a>
+                          </td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>  
+      </div>
+      <!-- main-panel ends -->
+
+  <!-- container-scroller -->
+
+    {{>adminjs}}
+    <script>
+      function descShow(id){
+        $(id).modal('toggle');
+      }
+    </script>
+    <script>
+      var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+      for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i + ' ' + rows[i].children[0][text];
+      }
+    </script>
+</body>
+

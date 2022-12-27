@@ -1,0 +1,94 @@
+{{>adminhead}}
+<body>
+    {{>adminnavbar}}
+    
+
+    
+      <!-- partial -->
+      <div class="main-panel">        
+
+       <div class="container-fluid pt-3"> 
+             
+            <div class="col-lg-6 grid-margin stretch-card pt-3 ">
+              <div class="card bg-dark text-light">
+                <div class="card-body">
+                     <a href="/admin/cancel" class="btn btn-close btn-close-white" ></a>
+                  <h4 class="card-title text-center fw-bold mb-2 text-uppercase text-light">edit-product</h4>
+                  {{#each category}}
+                  <input id="{{this.name}}"  value="{{this.offer}}" hidden>
+                  {{/each}}
+                  <form class="forms-sample pt-3" action="/admin/edit-product?product={{product._id}}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input type="text" class="form-control" name="name" id="exampleInputName1" placeholder="Name" value="{{product.name}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Category</label>
+                        <select class="form-select" id="sel" aria-label="Default select example" name="category">
+                          {{#each category}}
+                          <option value="{{this.name}}">{{this.name}}</option>
+                          {{/each}}
+                        </select>
+                      {{!-- <input type="text" class="form-control" name="category" id="exampleInputName1" placeholder="Category" value="{{product.category}}"> --}}
+                    </div>                    
+                    <div class="form-group">
+                      <label for="exampleInputName1">Brand</label>
+                      <input type="text" class="form-control" name="brand" id="exampleInputName1" placeholder="Brand" value="{{product.brand}}">
+                    </div>   
+                    <div class="form-group">
+                      <label for="exampleInputName1">Description</label>
+                      <input type="text" class="form-control" name="description" id="exampleInputName1" placeholder="Description" value="{{product.description}}">
+                    </div>                                     
+                    <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                      <input type="number" class="form-control" name="price" id="price" onchange="off()" placeholder="Price" value="{{product.price}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Discount</label>
+                      <input type="number" class="form-control" name="discount" id="discount" onchange="off()"  placeholder="Discount" value="{{product.discount}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Offer Price</label>
+                      <input type="number" class="form-control" name="offerprice" id="offerprice" placeholder="Offer Price" value="{{product.offerprice}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Stock</label>
+                      <input type="text" class="form-control" name="stocks" id="exampleInputName1" placeholder="Stock" value="{{product.stocks}}">
+                    </div>
+                    <div>
+                      <img style="width: 50px; height: 70px;" src="/product-images/{{product.image.[0]}}" alt="">
+                      <img style="width: 50px; height: 70px;" src="/product-images/{{product.image.[1]}}" alt="">
+                      <img style="width: 50px; height: 70px;" src="/product-images/{{product.image.[2]}}" alt="">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Image</label>
+                      <img src="/product-image/{{product._id}}.jpg" alt="" style="width: 100px;height:auto;">
+                      <input type="file" class="form-control" name="image" multiple>
+                    </div>                    
+                    <div class="text-center">
+                      <button class="btn btn-outline-primary"  type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<script>
+   function off(){
+    let catid= document.getElementById('sel').value
+    let catoffer=parseInt(document.getElementById(catid).value)
+    let discount=parseInt(document.getElementById("discount").value)
+    let price=parseInt(document.getElementById("price").value)
+    let offe=catoffer/100
+    let dis=discount/100
+   offer=offe+dis
+    if(offer>=1){
+      document.getElementById("offerprice").value=price
+    }else{
+    let offerprice=price-Math.round((offer*price))
+    document.getElementById("offerprice").value=offerprice
+
+    }
+  }
+</script>

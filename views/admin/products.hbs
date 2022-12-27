@@ -1,0 +1,146 @@
+{{>adminhead}}
+<body>
+    {{>adminnavbar}}
+    
+
+          <div class="container-fluid pt-3"> 
+             
+            <div class="col-lg-12 grid-margin stretch-card pt-3">
+           
+              <div class="card bg-dark">
+                    
+                <div class="card-body">
+                  <a href="/admin/add-product" class="btn btn-outline-success btn-rounded float-end">Add-Product</a>
+                  <h1 class="card-title text-center text-light">Products</h1>
+                  {{!-- <p class="card-description">
+                    Add class <code>.table-dark</code>
+                  </p> --}}
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            No.
+                          </th>
+                          <th scope="col">
+                            Name
+                          </th>
+                          <th scope="col">
+                            Category
+                          </th>
+                          <th scope="col">
+                            Brand
+                          </th>
+                          <th scope="col">
+                            Description
+                          </th>
+                          <th scope="col">
+                            Price
+                          </th>
+                          <th scope="col">
+                           Offer Price
+                          </th>
+                          <th scope="col">
+                            Discount
+                          </th>
+                          <th scope="col">
+                            Stock
+                          </th>
+                          <th scope="col">
+                            Image
+                          </th>
+                          <th scope="col">
+                            Action
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each products}}
+                        <tr>
+                          <th scope="row">
+                           
+                          </th>
+                          <td>
+                            {{this.name}}
+                          </td>
+                          <td>
+                           {{this.category}}
+                          </td>
+                          <td>
+                            {{this.brand}}
+                          </td>
+                          <td>
+                            <!-- Button trigger modal -->
+                              {{!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#1{{this._id}}">
+                               Description
+                              </button> --}}
+                              <button class="btn btn-outline-primary" type="button" onclick="descShow('#1{{this._id}}')">Description</button>
+                               </td>
+                              <!-- Modal -->
+                              <div class="modal fade" id="1{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">{{this.name}}</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>{{this.description}}</p>
+                                    </div>
+                                   
+                                  </div>
+                                </div>
+                              </div>
+                                                   
+                          <td>
+                            ₹ {{this.price}}
+                          </td>
+                          <td>
+                            ₹ {{this.offerprice}}
+                          </td>
+                          <td>
+                            {{this.discount}} %
+                          </td>
+                          <td>
+                            {{this.stocks}}
+                          </td>
+                          <td>
+                            <img style="width: 50px;height: 50px;" src="/product-images/{{this.image.[0]}}" alt="" >    
+                          </td>      
+                          <td>
+                            <a href="/admin/edit-product?product={{this._id}}" class=""><i class="fa-solid fa-pen-to-square" style="color: green;"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/admin/delete-product/{{this._id}}" class="" onclick="return confirm('Are you want to delete {{this.name}}?')"><i class="fa-solid fa-trash" style="color: red;"></i></a>
+                          </td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>  
+      </div>
+      <!-- main-panel ends -->
+
+  <!-- container-scroller -->
+
+    {{>adminjs}}
+    <script>
+      function descShow(id){
+        $(id).modal('toggle');
+      }
+    </script>
+    <script>
+      var table = document.getElementsByTagName('table')[0],
+        rows = table.getElementsByTagName('tr'),
+        text = 'textContent' in document ? 'textContent' : 'innerText';
+
+      for (var i = 1, len = rows.length; i < len; i++) {
+        rows[i].children[0][text] = i + ' ' + rows[i].children[0][text];
+      }
+    </script>
+</body>
+
