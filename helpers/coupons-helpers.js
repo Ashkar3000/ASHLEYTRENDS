@@ -74,7 +74,7 @@ module.exports={
         })
     },
     getCoupon:(data,userId,total)=>{
-      let response=[];
+      let response={};
       return new Promise(async(resolve, reject) => {
         let coupon=await db.get().collection(collection.COUPONS_COLLECTIONS)
         .findOne({code:data})
@@ -86,7 +86,7 @@ module.exports={
             let usedCoupon = await db.get().collection(collection.USERS_COLLECTION).findOne({$and:[{_id:objectid(userId)},{coupons:{$in:[coupon._id]}}]})
            if(usedCoupon){
             response.usedCoupon = true;
-            response.usedCouponMsg = "Coupon is Already used"            
+            response.usedCouponMsg = "Coupon is Already used"         
             resolve(response)
           }
           else{
@@ -108,6 +108,7 @@ module.exports={
           resolve(response);
         }
       } else {
+        console.log('invaid else')
         response.invalidCoupon = true;
         response.invalidMessage = "This coupon code is invalid";
         resolve(response);

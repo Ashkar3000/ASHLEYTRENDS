@@ -484,7 +484,7 @@ userwallets:async(req,res)=>{
 couponCheck:async(req,res)=>{
     let total=req.body.total
     let applyCoupon=await couponsHelpers.getCoupon(req.body.couponcode,req.session.user._id,total)
-    
+    console.log(applyCoupon);
     if (applyCoupon.couponVerified) {
         
         let discountAmount = (total * parseInt(applyCoupon.percentage)) / 100;
