@@ -395,7 +395,6 @@
             method: 'post',
             data: $('#couponCode').serialize(),
             success: (response) => {
-                alert(response.couponVerified)
                 if (response.couponVerified) {
                 alert('success')
                     document.getElementById("subTotalValue").innerHTML = response.subtotal;
@@ -406,7 +405,6 @@
                     document.getElementById("sendfinalAmount").value = response.amount;
                     document.getElementById("sendCouponId").value = response._id;
                 } else {
-                    console.log(response)
                     if (response.dateChecked) {
                         alert('date expired')
                         document.getElementById("errMsg").innerHTML = response.dateInvalidMessage;
