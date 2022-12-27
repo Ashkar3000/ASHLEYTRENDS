@@ -86,6 +86,7 @@ module.exports={
            if(usedCoupon){
             response.usedCoupon = true;
             response.usedCouponMsg = "Coupon is Already used"
+                 console.log(response)
             resolve(response)
           }
           else{
