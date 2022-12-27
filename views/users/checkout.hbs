@@ -400,13 +400,12 @@
                     document.getElementById("subTotalValue").innerHTML = response.subtotal;
                     document.getElementById("finalAmount").innerHTML = response.amount;
                     //document.getElementById("errMsg").innerHTML = "";
-                    //---send values-- to checkout ---=--//
-                    
-
+                    //---send values-- to checkout ---=--/
                     document.getElementById("sendSubTotal").value = response.subtotal;
                     document.getElementById("sendfinalAmount").value = response.amount;
                     document.getElementById("sendCouponId").value = response._id;
                 } else {
+                    alert('hiiiielse')
                     if (response.dateChecked) {
                         alert('date expired')
                         document.getElementById("errMsg").innerHTML = response.dateInvalidMessage;
