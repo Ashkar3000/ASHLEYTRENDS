@@ -183,7 +183,7 @@
                                                                                 </label>
                                                                             </div>
 
-                                                                            &nbsp;
+                                                                           {{!--  &nbsp;
                                                                             &nbsp;
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="radio"
@@ -203,7 +203,7 @@
                                                                                 <label class="form-check-label"
                                                                                     for="f-option5">Wallet
                                                                                 </label>
-                                                                            </div>
+                                                                            </div> --}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -395,12 +395,13 @@
             method: 'post',
             data: $('#couponCode').serialize(),
             success: (response) => {
-                alert('success')
+                alert(response)
                 if (response.couponVerified) {
+                alert('success')
                     document.getElementById("subTotalValue").innerHTML = response.subtotal;
                     document.getElementById("finalAmount").innerHTML = response.amount;
-                    //document.getElementById("errMsg").innerHTML = "";
-                    //---send values-- to checkout ---=--/
+                    document.getElementById("errMsg").innerHTML = "";
+                    //---send values-- to checkout ---=--//
                     document.getElementById("sendSubTotal").value = response.subtotal;
                     document.getElementById("sendfinalAmount").value = response.amount;
                     document.getElementById("sendCouponId").value = response._id;
