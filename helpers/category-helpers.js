@@ -17,8 +17,7 @@ module.exports = {
           
           let cateObj={
             name:category.name,
-            discount:parseInt(category.discount),
-            description:category.description
+            discount:parseInt(category.discount)
           }
           db.get()
           .collection("category")
@@ -39,8 +38,7 @@ module.exports = {
           {
             $set: {
               name:category.name,
-              discount:parseInt(category.discount),
-              description:category.description
+              discount:parseInt(category.discount)
             },
           }
         )
