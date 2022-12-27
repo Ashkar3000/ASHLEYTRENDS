@@ -395,7 +395,7 @@
             method: 'post',
             data: $('#couponCode').serialize(),
             success: (response) => {
-                
+                alert(response)
                 if (response.couponVerified) {
                 alert('success')
                     document.getElementById("subTotalValue").innerHTML = response.subtotal;
