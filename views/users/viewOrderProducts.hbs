@@ -84,7 +84,7 @@
 
 	<script>
 		function changestatus(status, prodId, orderId, userid) {
-			//alert(orderId)
+			alert(orderId)
 			$.ajax({
 				url: "/cancelOrder",
 				method: 'post',
@@ -95,7 +95,7 @@
 					userid: userid
 				},
 				success: (response) => {
-					//alert("45624132131654")
+					alert("45624132131654")
 					location.reload()
 				}
 			})
@@ -104,7 +104,7 @@
 	</script>
 	<script>
 		function Orderretun(status, prodId, orderId, userid) {
-			//alert(orderId)
+			alert(orderId)
 			$.ajax({
 				url: "/Orderretun",
 				method: 'post',
@@ -122,26 +122,7 @@
 
 		}
 	</script>
-	<script>
-		function changestatus(status, prodId, orderId, userid) {
-			//alert(orderId)
-			$.ajax({
-				url: "/Orderretun",
-				method: 'post',
-				data: {
-					status: status,
-					prodId: prodId,
-					orderId: orderId,
-					userid: userid
-				},
-				success: (response) => {
-					//alert("45624132131654")
-					location.reload()
-				}
-			})
 
-		}
-	</script>
 	</script>
 
 	{{>userjs}}
