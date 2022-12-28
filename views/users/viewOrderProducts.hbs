@@ -95,7 +95,7 @@
 					userid: userid
 				},
 				success: (response) => {
-					alert("Order Canceled")
+					alert("Order Cancelled")
 					location.reload()
 				}
 			})
@@ -115,14 +115,32 @@
 					userid: userid
 				},
 				success: (response) => {
-					alert("Order returned")
+					alert("Order Returned")
 					location.reload()
 				}
 			})
 
 		}
 	</script>
+	<script>
+		function changestatus(status, prodId, orderId, userid) {
+			//alert(orderId)
+			$.ajax({
+				url: "/Orderretun",
+				method: 'post',
+				data: {
+					status: status,
+					prodId: prodId,
+					orderId: orderId,
+					userid: userid
+				},
+				success: (response) => {
+					//alert("45624132131654")
+					location.reload()
+				}
+			})
 
+		}
 	</script>
 
 	{{>userjs}}
